@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 
 class Submission(models.Model):
@@ -14,3 +15,9 @@ class Submission(models.Model):
 
     class Meta:
         ordering = ('date_created',)
+
+    def get_absolute_url(self):
+        return reverse('conferences:submissions:detail', kwargs={
+            'conference_id': self.conference,
+            'submission_id': self.pk,
+        })
