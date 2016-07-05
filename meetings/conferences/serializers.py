@@ -21,4 +21,5 @@ class ConferenceSerializer(ser.ModelSerializer):
     class Meta:
         model = Conference
         fields = ('created', 'modified', 'id', 'title', 'siteUrl', 'city',
-                'state', 'country', 'start', 'end', 'submissionStart', 'submissionEnd', 'logoUrl', 'description')
+                  'state', 'country', 'start', 'end', 'submissionStart',
+                  'submissionEnd', 'logoUrl', 'description')

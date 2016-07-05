@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django_countries.fields import CountryField
+from django.core.urlresolvers import reverse
 
 
 class Conference(models.Model):
@@ -21,3 +22,8 @@ class Conference(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+    def get_absolute_url(self):
+        return reverse('conferences:detail', kwargs={
+            'pk': self.pk,
+        })

@@ -7,6 +7,7 @@ from api.serializers import UserSerializer
 
 class SubmissionSerializer(ser.HyperlinkedModelSerializer):
     conference = ser.PrimaryKeyRelatedField(queryset=Conference.objects.all())
+    # conference = ser.HyperlinkedIdentityField(view_name='conferences:detail')
     contributors = UserSerializer(many=True)
     node_id = ser.CharField(read_only=True)
     #
@@ -23,4 +24,8 @@ class SubmissionSerializer(ser.HyperlinkedModelSerializer):
 
     class Meta:
         model = Submission
-        fields = ('id', 'node_id', 'title', 'description', 'conference', 'contributors')
+        fields = ('id', 'node_id', 'title', 'description', 'conference',
+                  'contributors')
+
+
+class Submission

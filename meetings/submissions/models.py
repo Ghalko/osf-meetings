@@ -17,7 +17,7 @@ class Submission(models.Model):
         ordering = ('date_created',)
 
     def get_absolute_url(self):
-        return reverse('conferences:submissions:detail', kwargs={
-            'conference_id': self.conference,
+        return reverse('conferences:submissions:submission-detail', kwargs={
+            'conference_id': self.conference.pk,
             'submission_id': self.pk,
         })

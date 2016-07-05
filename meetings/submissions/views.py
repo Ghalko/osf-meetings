@@ -14,6 +14,7 @@ class SubmissionList(ListCreateAPIView):
     serializer_class = SubmissionSerializer
     resource_name = 'Submission'
     encoding = 'utf-8'
+    lookup_field = 'conference_id'
 
     def get_queryset(self):
         conference_id = self.kwargs.get('conference_id')
