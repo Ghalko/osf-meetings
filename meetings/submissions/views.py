@@ -21,7 +21,7 @@ class SubmissionList(ListCreateAPIView):
         return Submission.objects.filter(conference_id=conference_id)
 
     def post(self, request, conference_id=None, format=None):
-        serializer = SubmissionSerializer(data=request.data)
+        serializer = SubmissionSerializer(data=request.data, context={'request': request})
         contributors = [request.user.id]
 
         if serializer.is_valid():
