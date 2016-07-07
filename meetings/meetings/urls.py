@@ -13,7 +13,6 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail, name='user-detail'),
     url(r'^conferences/', include('conferences.urls', namespace='conferences')),
     url(r'^auth/', views.OsfAuthorizationUrl.as_view(), name='auth'),
     url(r'^login/', views.OsfAuthorizationCode.as_view(), name='login'),

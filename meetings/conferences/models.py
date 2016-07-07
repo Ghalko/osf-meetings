@@ -27,3 +27,9 @@ class Conference(models.Model):
         return reverse('conferences:detail', kwargs={
             'pk': self.pk,
         })
+
+    @property
+    def submissions_link(self):
+        return reverse('conferences:submissions:list', kwargs={
+            'conference_id': self.pk,
+        })
