@@ -4,23 +4,25 @@ module.exports = function(environment) {
     var ENV = {
         modulePrefix: 'osf-meetings',
         environment: environment,
-        baseURL: '/',
+        rootURL: '/meetings/',
         locationType: 'auto',
+        authorizationType: 'cookie',
+        'ember-simple-auth': {
+            authorizer: 'authorizer:osf-cookie',
+            authenticator: 'authenticator:osf-cookie'
+        },
         EmberENV: {
             FEATURES: {
                 // Here you can enable experimental features on an ember canary build
                 // e.g. 'with-controller': true
             }
         },
-
-        'ember-simple-auth': {
-            authenticationRoute: 'login',
-            routeAfterAuthentication: 'index'
-        },
-
         APP: {
             // Here you can pass flags/options to your application instance
             // when it is created
+        },
+        MEETINGS: {
+            provider: 'osf'
         }
     };
 
@@ -31,20 +33,20 @@ module.exports = function(environment) {
         // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
         // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-        ENV.providers = {
-            "osfMeetings": {
-                "host": "http://localhost:4200/",
-                "apiUrl": "http://localhost:8000/",
-                "currentUser": "http://localhost:8000/users/me/",
-                "uploadsUrl": "http://localhost:8000/uploads/",
-                "uploadMultiple": false
-            },
-            "osf": {
-                "host": "https://staging.osf.io/",
-                "uploadsUrl": "https://staging-files.osf.io/v1/resources/",
-                "uploadMultiple": false
-            }
-        }
+        // ENV.providers = {
+        //     "osfMeetings": {
+        //         "host": "http://localhost:4201/",
+        //         "apiUrl": "http://localhost:8001/",
+        //         "currentUser": "http://localhost:8001/users/me/",
+        //         "uploadsUrl": "http://localhost:8001/uploads/",
+        //         "uploadMultiple": false
+        //     },
+        //     "osf": {
+        //         "host": "http://localhost:5000/",
+        //         "uploadsUrl": "https://localhost:5000/v1/resources/",
+        //         "uploadMultiple": false
+        //     }
+        // }
     }
 
     if (environment === 'test') {
