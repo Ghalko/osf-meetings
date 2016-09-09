@@ -58,6 +58,7 @@
     "ember-models-table": "1.7.0",
     "ember-onbeforeunload": "1.0.0",
     "ember-one-way-controls": "0.8.3",
+    "ember-osf": "git+https://github.com/CenterForOpenScience/ember-osf.git#develop",
     "ember-prop-types": "2.0.0",
     "ember-resolver": "^2.0.3",
     "ember-route-action-helper": "0.3.3",
@@ -70,8 +71,7 @@
     "moment": "2.13.0",
     "moment-timezone": "0.5.4",
     "svg4everybody": "2.0.3",
-    "wormhole": "3.0.0",
-    "ember-osf": "git+https://github.com/CenterForOpenScience/ember-osf.git#081f433c1bb79141dc4c5e35bde9bd81c40c1069"
+    "wormhole": "3.0.0"
   },
   "dependencies": {
   }
