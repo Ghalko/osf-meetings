@@ -1,12 +1,3 @@
-<td class="tableEdit" scope="row">
-    {{#if this.isRenaming}}
-        <button class='btn-success' {{action "confirmRename" submission}}>Confirm</button>
-        <button class='btn-danger' {{action "cancelRename" submission}}>Cancel</button>
-    {{else}}
-        <button class='btn-warning' {{action "clickRename"}} >Rename</button><br>
-        <button class='btn-danger' {{action "clickDelete"}} >Delete</button>
-    {{/if}}
-</td>
 <td class="tableTitle">
     {{#if this.isRenaming}}
         {{input value=submission.title}}
@@ -16,24 +7,28 @@
         </a>
     {{/if}}
 </td>
-<td style="color: black;">
-    {{submission.contributor.fullName}}
-</td>
-<td class="tableCategory" style="color: #000000">{{submission.category}}</td>
-<td class="tableDate" style="color: #000000">{{date-display submission.dateCreated}}</td>
-<td class="tableDownload" style="color: #000000 text-align: center">
-    <button type='btn-success' {{action "download" submission.downloadLink}}>
+<td class="tableCategory">{{submission.category}}</td>
+<td class="tableDate">{{date-display submission.dateCreated}}</td>
+<td class="tableDownload">
+    <button class='btn btn-sm btn-success' {{action "download" submission.fileUrl}}>
         <span class="fa fa-download"></span>
     </button>
-</td>
-<td class="tableDownloadCount" style="color: #000000">
     {{submission.downloadCount}}
+</td>
+<td class="tableEdit" scope="row">
+    {{#if this.isRenaming}}
+        <button class='btn-success' {{action "confirmRename" submission}}>Confirm</button>
+        <button class='btn-danger' {{action "cancelRename" submission}}>Cancel</button>
+    {{else}}
+        <button class='btn-warning' {{action "clickRename"}} >Rename</button><br>
+        <button class='btn-danger' {{action "clickDelete"}} >Delete</button>
+    {{/if}}
 </td>
 {{#if this.displayModal}}
     {{#modal-dialog close="hideform" targetAttachment="center" translucentOverlay=true}}
         Are you sure you want to delete the submission: <b>{{submission.title}}</b>?
         <br>
-        <button class="btn-danger" {{action "cancelDelete"}}>No</button>
-        <button class="btn-success" {{action "confirmDelete" submission}}>Yes</button>
+        <button class="btn btn-danger" {{action "cancelDelete"}}>Cancel</button>
+        <button class="btn btn-success" {{action "confirmDelete" submission}}>Confirm</button>
     {{/modal-dialog}}
 {{/if}}

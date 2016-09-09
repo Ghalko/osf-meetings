@@ -42,18 +42,18 @@ class SubmissionViewSet(viewsets.ModelViewSet):
     #  OSF's node url
     node_url = '{}v2/nodes/'.format(settings.OSF_API_URL)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, *args, **kwargs):
         """Returns a single Submission item"""
-        return super(SubmissionViewSet, self).retrieve(request, pk)
+        return super(SubmissionViewSet, self).retrieve(request, *args, **kwargs)
 
     def partial_update(self, request, *args, **kwargs):
         """Partial update a Submission """
         return super(SubmissionViewSet, self).partial_update(
             request, *args, **kwargs)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request, *args, **kwargs):
         """Delete a Submission"""
-        return super(SubmissionViewSet, self).destroy(request, pk)
+        return super(SubmissionViewSet, self).destroy(request, *args, **kwargs)
 
     def perform_create(self, serializer):
         node = {

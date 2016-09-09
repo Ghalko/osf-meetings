@@ -13,6 +13,7 @@ OSF_MEETINGS_API_URL = 'http://localhost:8000'
 DEFAULT_SCOPES = ['osf.full_write', ]
 HUMANS_GROUP_NAME = 'OSF_USERS'
 OSF_MEETINGS_API_URL = 'http://localhost:8000'
+OSF_MEETINGS_HOME_URL = 'http://localhost:4200'
 
 # Database
 # POSTGRES_NAME = ''

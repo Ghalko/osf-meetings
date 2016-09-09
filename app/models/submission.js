@@ -35,7 +35,8 @@ export default Model.extend(Validations, {
     canEdit: attr('boolean'),
     nodeId: attr('string'),
     category: attr('string', { defaultValue : 'project' }),
-    metafile : belongsTo('metafile'),
     dateCreated: attr(),
-    contributor : belongsTo('user')
+    contributor : belongsTo('user'),
+    fileId: attr('string'),
+    fileUrl: attr('string')
 });

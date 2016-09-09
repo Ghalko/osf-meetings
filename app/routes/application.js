@@ -7,7 +7,6 @@ default Ember.Route.extend({
             this.transitionTo('logout');
         },
         login: function() {
-            document.cookie = "redirectURL=" + window.location.href;
             this.transitionTo('login');
         },
         filter(params) {

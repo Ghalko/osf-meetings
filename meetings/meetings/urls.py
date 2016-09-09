@@ -8,7 +8,6 @@ from django.conf import settings
 urlpatterns = [
     url(r'^conferences/', include(
         'conferences.urls', namespace='conferences')),
-    url(r'^metafiles/', include('metafiles.urls', namespace='metafiles')),
     url(r'^approvals/', include('approvals.urls', namespace='approvals')),
     url(r'^docs/', include('rest_framework_docs.urls')),
     url(r'^submissions/',

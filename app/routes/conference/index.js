@@ -11,8 +11,7 @@ export default Ember.Route.extend({
             conf : this.store.findRecord('conference', params.conference_id),
             allSubmissions : this.store.query('submission', {
                 conference: params.conference_id
-            }),
-            metafiles : this.store.findAll('metafile')
+            })
         });
     },
     isEqual: function(p1, p2) {

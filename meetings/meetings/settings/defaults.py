@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'mail',
     'autofixture',
     'rest_framework_swagger',
-    'metafiles',
     'rest_framework_docs',
 ]
 
@@ -164,6 +163,10 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+# django allauth
+ADAPTER = "osf_oauth2_adapter.adapter.OsfMeetingsAdapter"
+ACCOUNT_ADAPTER = "osf_oauth2_adapter.adapter.OsfMeetingsAdapter"
+
 # django cors headers
 # http://blog.hugethoughts.com/allow-cors-specific-domain-django/
 CORS_ORIGIN_ALLOW_ALL = True
@@ -226,9 +229,10 @@ OSF_MEETINGS_API_URL = 'http://localhost:8000'
 DEFAULT_SCOPES = ['osf.full_write', ]
 HUMANS_GROUP_NAME = 'OSF_USERS'
 
-# Where users are redirected after login
-LOGIN_REDIRECT_URL = 'http://localhost:4200'
+# Where users get redirected after logout (django allauth)
 ACCOUNT_LOGOUT_REDIRECT_URL = 'http://localhost:4200'
+
+OSF_MEETINGS_HOME_URL = 'http://localhost:4200'
 
 CLIENT_ID = ''
 CLIENT_SECRET = ''

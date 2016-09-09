@@ -24,31 +24,6 @@ export default Ember.Route.extend({
         });
         return foundConferences;
     },
-
-    //The beforeModel function here checks if the redirectURL is equal to something besides the index (current) route
-    //If it is equal to something else, it resets the redirectURL to the index route and transitions to the redirect URL
-
-    beforeModel: function() {
-        var redirectURL = this.getCookie('redirectURL');
-        if (redirectURL !== window.location.href) {
-            document.cookie = "redirectURL=" + window.location.href;
-            window.location = redirectURL;
-        }
-    },
-    getCookie: function(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)===' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
-    },
     actions: {
         create() {
             this.transitionTo('conference.new').then(function(newRoute) {

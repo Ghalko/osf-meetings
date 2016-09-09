@@ -8,7 +8,6 @@ rm api/migrations/0*
 rm conferences/migrations/0*
 rm submissions/migrations/0*
 rm approvals/migrations/0*
-rm metafiles/migrations/0*
 
 ./manage.py makemigrations
 ./manage.py migrate

@@ -20,6 +20,20 @@ export default Ember.Component.extend({
                 this.set('resolve', resolve);
             });
         },
+        sending(_this, drop, file, xhr, form) {
+            //Localhost expects a body form-data request
+            //Waterbutler expects body raw request
+            var uploadURL = drop.options.url;
+            var _send = xhr.send;
+            xhr.send = function() {
+                if(uploadURL.indexOf('localhost') < 0) {
+                    _send.call(xhr, file);
+                } else {
+                    form.append("file", file, file.name);
+                    _send.call(xhr, form);
+                }
+            };
+        },
         success(_this, dropZone, file, successData) {
             this.sendAction('success', dropZone, file, successData);
         },

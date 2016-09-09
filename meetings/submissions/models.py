@@ -17,6 +17,8 @@ class Submission(models.Model):
         'conferences.Conference',
         on_delete=models.CASCADE, null=True)
     approval = models.OneToOneField('approvals.Approval', null=True)
+    file_id = models.CharField(max_length=100, null=True)
+    file_url = models.URLField(blank=True, null=True)
 
     class Meta:
         ordering = ('date_created',)
