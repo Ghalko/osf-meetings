@@ -1,11 +1,11 @@
 {
   "name": "osf-meetings",
   "dependencies": {
-    "ember": "~2.4.0",
+    "ember": "~2.7.1",
     "ember-cli-shims": "0.1.1",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
-    "pretender": "~1.1.0",
+    "pretender": "~1.2.0",
     "lodash": "^4.10.0",
     "Faker": "~3.1.0",
     "bootstrap": "^3.3.6",
